@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Результаты погоды</title>
+ <style>
+ body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+ .weather-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-top: 20px; }
+ .back-btn { display: inline-block; margin-top: 20px; color: #007bff; text-decoration: none; }
+ </style>
+</head>
+<body>
+ <h1>Результаты погоды</h1>
+
+ <div class="weather-card">
+ <h2>Координаты: {{ weather.latitude }}, {{ weather.longitude }}</h2>
+
+ <div style="font-size: 48px; text-align: center; margin: 20px 0;">
+ {% if weather.temperature > 20 %} {% else %} {% endif %}
+ {{ weather.temperature }}°C
+ </div>
+
+ <table>
+ <tr>
+ <td><strong>Описание:</strong></td>
+ <td>{{ weather.description }}</td>
+ </tr>
+ <tr>
+ <td><strong>Скорость ветра:</strong></td>
+ <td>{{ weather.windspeed }} км/ч</td>
+ </tr>
+ <tr>
+ <td><strong>Направление ветра:</strong></td>
+ <td>{{ weather.winddirection }}°</td>
+ </tr>
+ <tr>
+ <td><strong>Код погоды:</strong></td>
+ <td>{{ weather.weathercode }}</td>
+ </tr>
+ </table>
+ </div>
+
+ <a href="/" class="back-btn">← Назад к поиску</a>
+</body>
+</html> 
